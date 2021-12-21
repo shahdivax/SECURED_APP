@@ -11,16 +11,17 @@ import android.util.Log;
  */
 
 public class Databasehelper extends SQLiteOpenHelper {
+
     private static final String DATABASE_NAME = "my_database.db";
     private static final int DATABASE_VERSION = 1;
 
     public Databasehelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context,TABLE_NAME, null, DATABASE_VERSION);
     }
 
     private static final String TAG = "DatabaseHelper";
 
-    private static final String TABLE_NAME = "DATA";
+    private static final String TABLE_NAME = "VARUN";
     private static final String COL1 = "ID";
     private static final String COL2 = "name";
     private static final String COL3 = "USERNAME";

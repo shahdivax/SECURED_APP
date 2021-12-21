@@ -64,7 +64,7 @@ public class EditDataActivity extends AppCompatActivity {
                 String sec = editSecPASS.getText().toString().replace(" ","_");
                 String Tnx = editTnxPASS.getText().toString().replace(" ","_");
 
-                if (title.equals(null) ){
+                if (title.equals("") || user.equals("") || pass.equals("") || sec.equals("") || Tnx.equals("")){
                     Toast.makeText(EditDataActivity.this, "Please Enter Something", Toast.LENGTH_SHORT).show();
 
                 }else {
