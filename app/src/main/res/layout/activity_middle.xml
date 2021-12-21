@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/middle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".middle"
+    android:background="@drawable/rounded_edittext">
+
+
+  <EditText
+      android:id="@+id/username"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="15dp"
+      android:background="@drawable/rounded_main1"
+      android:ems="10"
+      android:hint="User ID"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textAlignment="center"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Title" />
+
+  <EditText
+      android:id="@+id/Title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="108dp"
+      android:background="@drawable/rounded_main1"
+      android:ems="10"
+      android:hint="Title"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textAlignment="center"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <EditText
+      android:id="@+id/Password"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="15dp"
+      android:background="@drawable/rounded_main1"
+      android:ems="10"
+      android:hint="Password"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textAlignment="center"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/username" />
+
+  <EditText
+      android:id="@+id/SecurityPass"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="15dp"
+      android:background="@drawable/rounded_main1"
+      android:ems="10"
+      android:hint="Security Password"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textAlignment="center"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Password" />
+
+  <EditText
+      android:id="@+id/TnxPass"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="15dp"
+      android:background="@drawable/rounded_main1"
+      android:ems="10"
+      android:hint="Transaction Password"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      android:textAlignment="center"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/SecurityPass" />
+
+  <Button
+      android:id="@+id/Adddata"
+      android:layout_width="130dp"
+      android:layout_height="54dp"
+      android:layout_marginTop="15dp"
+      android:backgroundTint="#86E91E63"
+      android:fontFamily="sans-serif-black"
+      android:text=" Add Data"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/TnxPass"
+      app:layout_constraintVertical_bias="0.059" />
+</androidx.constraintlayout.widget.ConstraintLayout>
