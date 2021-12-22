@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/YTApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26614583333333336" />
         <entry key="..\:/YTApp/app/src/main/res/drawable/background.xml" value="0.26614583333333336" />
+        <entry key="..\:/YTApp/app/src/main/res/drawable/btn_bg.xml" value="0.26614583333333336" />
+        <entry key="..\:/YTApp/app/src/main/res/drawable/btn_bg_w.xml" value="0.26614583333333336" />
+        <entry key="..\:/YTApp/app/src/main/res/drawable/imgback.xml" value="0.26614583333333336" />
         <entry key="..\:/YTApp/app/src/main/res/drawable/rounded_edittext.xml" value="0.2064814814814815" />
         <entry key="..\:/YTApp/app/src/main/res/drawable/rounded_main1.xml" value="0.2064814814814815" />
         <entry key="..\:/YTApp/app/src/main/res/drawable/testanimation.xml" value="0.26614583333333336" />
@@ -14,7 +17,7 @@
         <entry key="..\:/YTApp/app/src/main/res/layout/activity_edit_data.xml" value="0.264" />
         <entry key="..\:/YTApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/YTApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/YTApp/app/src/main/res/layout/activity_main2.xml" value="0.1" />
+        <entry key="..\:/YTApp/app/src/main/res/layout/activity_main2.xml" value="0.4" />
         <entry key="..\:/YTApp/app/src/main/res/layout/activity_middle.xml" value="0.264" />
         <entry key="..\:/YTApp/app/src/main/res/layout/activity_middlepage.xml" value="0.22780797101449277" />
         <entry key="..\:/YTApp/app/src/main/res/layout/activity_view_data.xml" value="0.264" />
