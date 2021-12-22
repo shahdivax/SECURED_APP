@@ -16,18 +16,17 @@
         android:background="@drawable/rounded_edittext"
         android:ems="10"
         android:hint="PASSWORD"
-        android:textColorHint="@color/white"
         android:inputType="numberPassword"
         android:minWidth="100dp"
         android:minHeight="60dp"
         android:textAlignment="center"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"/>
-
+        app:layout_constraintVertical_bias="0.533" />
 
     <Button
         android:id="@+id/button"
@@ -53,15 +52,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:src="@drawable/lock"
+        android:layout_width="384dp"
+        android:layout_height="316dp"
+        android:src="@drawable/Logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="@+id/Password"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="@+id/Password"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086"
-        android:background="@drawable/imgback"/>
+        app:layout_constraintVertical_bias="0.038" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
