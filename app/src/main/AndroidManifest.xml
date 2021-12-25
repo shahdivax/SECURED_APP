@@ -10,6 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YTApp">
         <activity
+            android:name=".forget_pass"
+            android:exported="false" />
+        <activity
+            android:name=".Signin"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Signup"
+            android:exported="false" />
+        <activity
             android:name=".EditDataActivity"
             android:exported="false" />
         <activity
@@ -20,12 +36,8 @@
             android:exported="false" />
         <activity
             android:name=".Main"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".middle"
