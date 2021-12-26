@@ -6,22 +6,32 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by User on 2/28/2017.
- */
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
+
+
 
 public class Databasehelper extends SQLiteOpenHelper {
+
 
     private static final String DATABASE_NAME = "my_database.db";
     private static final int DATABASE_VERSION = 1;
 
-    public Databasehelper(Context context) {
-        super(context,TABLE_NAME, null, DATABASE_VERSION);
+
+    private static String name ;
+
+    private static String getB(String name){
+        Databasehelper.name = name ;
+        return Databasehelper.name;
     }
 
-    private static final String TAG = "DatabaseHelper";
+    private static final String TABLE_NAME = "Divax";
 
-    private static final String TABLE_NAME = "VARUN";
     private static final String COL1 = "ID";
     private static final String COL2 = "name";
     private static final String COL3 = "USERNAME";
@@ -31,22 +41,57 @@ public class Databasehelper extends SQLiteOpenHelper {
 
 
 
+    public Databasehelper(Context context) {
+        super(context,TABLE_NAME, null, DATABASE_VERSION);
+    }
+
+
+
+
+    private static final String TAG = "DatabaseHelper";
+
+
+    FirebaseDatabase Database;
+    FirebaseAuth Auth;
 
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "+COL2 +" TEXT,"+COL3+" TEXT,"+COL4 +" TEXT,"+COL5 +" TEXT,"+COL6 +" TEXT)";
+        Database = FirebaseDatabase.getInstance();
+        Auth = FirebaseAuth.getInstance();
+
+        String id = Auth.getCurrentUser().getUid();
+        Database.getReference().child("Users").child(id).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                if (task.isSuccessful()){
+                    name = task.getResult().child("username").getValue().toString().replace("", "_");
+                    getB(name);
+                }
+
+                else {
+                    System.out.println("SOMETHING WORNG");
+                    getB("Name");
+                }
+            }
+        });
+
+        String createTable = "CREATE TABLE "+TABLE_NAME+" (ID INTEGER PRIMARY KEY AUTOINCREMENT, "+COL2 +" TEXT,"+COL3+" TEXT,"+COL4 +" TEXT,"+COL5 +" TEXT,"+COL6 +" TEXT)";
         db.execSQL(createTable);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
     public boolean addData(String[] item) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, item[0]);
@@ -55,7 +100,7 @@ public class Databasehelper extends SQLiteOpenHelper {
         contentValues.put(COL5, item[3]);
         contentValues.put(COL6, item[4]);
 
-        Log.d(TAG, "addData: Adding " + item + " to " + TABLE_NAME);
+        //Log.d(TAG, "addData: Adding " + item + " to " + TABLE_NAME);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 

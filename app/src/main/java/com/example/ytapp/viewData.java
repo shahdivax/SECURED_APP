@@ -30,13 +30,7 @@ public class viewData extends AppCompatActivity {
 
         mListview = findViewById(R.id.listview);
         mDatabaseHelper = new Databasehelper(this);
-
-
         populateListView();
-
-
-
-
     }
 
     private void populateListView() {

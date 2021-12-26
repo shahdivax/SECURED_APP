@@ -1,8 +1,12 @@
 package com.example.ytapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class forget_pass extends AppCompatActivity {
 
     FirebaseAuth auth;
+    ProgressDialog pd;
 
     EditText email;
     Button reset;
@@ -24,6 +29,10 @@ public class forget_pass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pass);
+        pd = new ProgressDialog(forget_pass.this);
+        pd.setTitle("Forget Password");
+        pd.setMessage("Sending Email");
+
 
 
         email=findViewById(R.id.resetEmail);
@@ -35,8 +44,14 @@ public class forget_pass extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(email.getText().toString().equals("")){
+                    AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                    view.startAnimation(buttonClick);
+                    Animation shake = AnimationUtils.loadAnimation(forget_pass.this, R.anim.shake);
+                    view.startAnimation(shake);
                     Toast.makeText(forget_pass.this, "Something Found Empty", Toast.LENGTH_SHORT).show();
                 }else{
+
+                    pd.show();
 
                     auth.sendPasswordResetEmail(email.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -47,7 +62,12 @@ public class forget_pass extends AppCompatActivity {
                                 startActivity(intend);
                                 email.setText("");
                                 Toast.makeText(forget_pass.this, "Email send", Toast.LENGTH_SHORT).show();
+                                pd.dismiss();
                             }else{
+                                AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                                view.startAnimation(buttonClick);
+                                Animation shake = AnimationUtils.loadAnimation(forget_pass.this, R.anim.shake);
+                                view.startAnimation(shake);
                                 Toast.makeText(forget_pass.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }

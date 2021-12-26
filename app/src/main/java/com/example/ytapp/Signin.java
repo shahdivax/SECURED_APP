@@ -1,5 +1,6 @@
 package com.example.ytapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,15 +24,18 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Signin extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
+    ProgressDialog pd;
 
     EditText email,pass,user;
-    Button signin,signup;
-    TextView forget;
+    Button signin;
+    TextView forget,signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
+        pd = new ProgressDialog(Signin.this);
+        pd.setMessage("Signing You In");
 
 
         auth = FirebaseAuth.getInstance();
@@ -39,7 +43,7 @@ public class Signin extends AppCompatActivity {
         email = findViewById(R.id.inEMAIl);
         pass = findViewById(R.id.Inpass);
         signin =findViewById(R.id.SignIn);
-        signup = findViewById(R.id.Signup2);
+        signup = findViewById(R.id.TextSignup);
         forget = findViewById(R.id.textView);
         user = findViewById(R.id.Name);
 
@@ -50,8 +54,13 @@ public class Signin extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (email.getText().toString().equals("") || pass.getText().toString().equals("")){
+                    AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                    view.startAnimation(buttonClick);
+                    Animation shake = AnimationUtils.loadAnimation(Signin.this, R.anim.shake);
+                    view.startAnimation(shake);
                     Toast.makeText(Signin.this, "Something Found Empty", Toast.LENGTH_SHORT).show();
                 }else{
+                    pd.show();
 
                     auth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).
                             addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -61,12 +70,12 @@ public class Signin extends AppCompatActivity {
                                     if(task.isSuccessful()){
 
                                         Intent intend = new Intent(Signin.this,afterlogin.class);
-                                        intend.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intend);
                                         email.setText("");
                                         pass.setText("");
 
                                         Toast.makeText(Signin.this, "Login successful", Toast.LENGTH_SHORT).show();
+                                        pd.dismiss();
 
                                     }else{
                                         AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);

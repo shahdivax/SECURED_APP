@@ -1,10 +1,15 @@
 package com.example.ytapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +25,7 @@ public class Signup extends AppCompatActivity {
 
     private FirebaseAuth Auth;
     FirebaseDatabase database;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +33,8 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         EditText name,email,pass;
-        Button signup,signin;
+        Button signup;
+        TextView signin;
 
 
 
@@ -37,6 +44,8 @@ public class Signup extends AppCompatActivity {
         pass = findViewById(R.id.Password);
         signup = findViewById(R.id.Signup);
         signin = findViewById(R.id.signin);
+        pd = new ProgressDialog(Signup.this);
+        pd.setMessage("Signing You Up");
 
         Auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -46,8 +55,13 @@ public class Signup extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(name.getText().toString().equals("") || email.getText().toString().equals("") || pass.getText().toString().equals("")){
+                    AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                    view.startAnimation(buttonClick);
+                    Animation shake = AnimationUtils.loadAnimation(Signup.this, R.anim.shake);
+                    view.startAnimation(shake);
                     Toast.makeText(Signup.this, "Something Found Empty", Toast.LENGTH_SHORT).show();
                 }else{
+                    pd.show();
 
                     Auth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).
                             addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -70,7 +84,12 @@ public class Signup extends AppCompatActivity {
                                         pass.setText("");
 
                                         Toast.makeText(Signup.this, "USER CREATED PLEASE LOGIN", Toast.LENGTH_SHORT).show();
+                                        pd.dismiss();
                                     }else{
+                                        AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                                        view.startAnimation(buttonClick);
+                                        Animation shake = AnimationUtils.loadAnimation(Signup.this, R.anim.shake);
+                                        view.startAnimation(shake);
 
                                         Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
