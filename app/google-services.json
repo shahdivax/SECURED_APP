@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1084086346030",
+    "project_id": "ytapp-475e6",
+    "storage_bucket": "ytapp-475e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084086346030:android:e5a8e5eb84155d69441abf",
+        "android_client_info": {
+          "package_name": "com.example.ytapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084086346030-3emceopbjd9rr7cdco2jbukpsqavo9m4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPPdc1Lih4meze4sqDKO_9S98d1xWFZcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084086346030-3emceopbjd9rr7cdco2jbukpsqavo9m4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
