@@ -69,6 +69,7 @@ public class forget_pass extends AppCompatActivity {
                                 Animation shake = AnimationUtils.loadAnimation(forget_pass.this, R.anim.shake);
                                 view.startAnimation(shake);
                                 Toast.makeText(forget_pass.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                pd.dismiss();
                             }
                         }
                     });

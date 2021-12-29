@@ -92,6 +92,7 @@ public class Signup extends AppCompatActivity {
                                         view.startAnimation(shake);
 
                                         Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        pd.dismiss();
                                     }
                                 }
                             });

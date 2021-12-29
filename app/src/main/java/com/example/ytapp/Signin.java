@@ -83,6 +83,7 @@ public class Signin extends AppCompatActivity {
                                         Animation shake = AnimationUtils.loadAnimation(Signin.this, R.anim.shake);
                                         view.startAnimation(shake);
                                         Toast.makeText(Signin.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        pd.dismiss();
                                     }
                                 }
                             });
