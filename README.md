@@ -6,7 +6,7 @@
 
 
 Also This app is based on `sqlite` database so it creates database on your device and can not be opened without htis app.
-The login system is based on firebase Database by GOOGLE so it is the safest way to store yur all imp passwords
+The login system is based on `firebase Database by GOOGLE` so it is the safest way to store yur all imp passwords.
 
 It is still under Development for multiple accounts on single device
 
